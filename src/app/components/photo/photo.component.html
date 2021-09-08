@@ -1,0 +1,19 @@
+<div class="col-md-4" *ngFor="let photo of photos">
+    <div class="card text-center">
+        <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+           {{ photo.title }}
+           <button class="btn btn-danger" (click)="deletePhoto(photo.id)">
+                <i class="far fa-trash-alt"></i>
+           </button>
+        </div>
+        <img [src]="photo.image" class="card-img-top">
+        <div class="card-body">
+            <p>{{ photo.description }}</p>
+            <p>{{ photo.created_at | date: 'dd-MM-yyyy'}}</p>
+            <!-- esta entre corchetes por que recibe un parametro de entrada -->
+            <a [routerLink]="['/photo', photo.id]" class="btn btn-secondary btn-block">
+                Editar
+            </a>
+        </div>
+    </div>
+</div>
